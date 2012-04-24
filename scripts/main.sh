@@ -7,4 +7,4 @@ do
 	fi
 done;
 
-sh scripts/cljs-watch src/server '{:optimizations :simple :output-to "server.js" :target :nodejs}' 
+sh scripts/cljs-watch src/server '{:output-dir "out" :optimizations :simple :output-to "server.js" :target :nodejs}' 
