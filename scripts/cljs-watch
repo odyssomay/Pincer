@@ -22,8 +22,7 @@ exec java -server -cp "${CLJS_LIB}:${CLJS_LIB_JARS}:${CLJS_SRC}:${CLJS_CLJS}:${L
           f (SimpleDateFormat. \"HH:mm:ss\")]
       (.format f (.getTime c))))
 
-  (def default-opts {:optimizations :simple
-                     :pretty-print true
+  (def default-opts {:pretty-print true
                      :output-dir \"resources/public/cljs/\"
                      :output-to \"resources/public/cljs/bootstrap.js\"})
 
