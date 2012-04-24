@@ -4,12 +4,11 @@
     [util :as util]
     [cljs.nodejs :as node]))
 
-;(println (js-obj {:a 3 :b 4}))
-
 (def express (node/require "express"))
 
 (defn configure-server [app]
   (.use app (. app -routes))
+  (.use app (js* "require('express')['static']('public')"))
 ;  (.use app (js* "require(\"express\").static(\"public\")"))
 ;  (.configure 
 ;    app
@@ -20,6 +19,7 @@
 
 (defn init-routes [app]
   (doto app
+    (.get "/" (fn [req res] (.redirect res "/page/index")))
     (.get "/page/:name" (fn [req res]
                           (.send res (r/render-page (keyword (.-name (.-params req))))) 
                           ))))
@@ -30,9 +30,8 @@
     (configure-server app)
     (init-routes app)
     (r/init-env)
-    (r/get-env)
-    (.listen app 8080) ;(fn [] (println "Express server listening on port " (. (.address app) -port) 
-                      ;                " in mode " (. (. app -settings) -env))))
+    (.listen app 8080 (fn [] (println "Express server listening on port " (. (.address app) -port) 
+                                      " in mode " (. (. app -settings) -env))))
     ))
 
 (set! *main-cli-fn* start-server)
