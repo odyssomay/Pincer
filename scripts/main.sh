@@ -7,5 +7,4 @@ do
 	fi
 done;
 
-sh scripts/cljs-watch src/server '{:optimizations :whitespace :output-to "server.js" :target :nodejs}' &
-sh scripts/supervisor.sh
+sh scripts/cljs-watch src/server '{:optimizations :simple :output-to "server.js" :target :nodejs}' 
