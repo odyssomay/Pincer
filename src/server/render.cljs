@@ -38,6 +38,6 @@
 (defn render-page [page]
   (let [page-content (get @pages page nil)
         env (get-env env)]
-    (if-not page-content (println "WARNING: page " page " does not exist"))
+    (if-not page-content (println "WARNING: page" page "does not exist"))
     (.render whiskers page-content env)))
 

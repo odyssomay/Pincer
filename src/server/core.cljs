@@ -21,7 +21,7 @@
 (defn init-routes [app]
   (doto app
     (.get "/page/:name" (fn [req res]
-                          (.send res (r/render-page :index))
+                          (.send res (r/render-page (keyword (.-name (.-params req))))) 
                           ))))
 
 (defn start-server []
