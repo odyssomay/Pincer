@@ -3,7 +3,7 @@ for filename in src/app/*
 do
 	if [ "${filename##*.}" == "cljs" ]; then
 		output="public/js/app/$(basename ${filename%.*}).js"
-		sh scripts/cljs-watch $filename '{:output-to "$output"}' &
+		sh scripts/cljs-watch $filename "{:output-to \"$output\" :output-dir \"public/js/app/out\"}" &
 	fi
 done;
 
