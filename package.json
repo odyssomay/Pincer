@@ -1,0 +1,9 @@
+{
+	"name": "pincher"
+  ,	"version": "1.0.0"
+  ,	"dependencies": {
+		"supervisor": ""
+	  ,	"express": "2.5.9"
+	  ,	"whiskers": "0.2.1"
+	}
+}
