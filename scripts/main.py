@@ -26,15 +26,14 @@ for infile in os.listdir('src/app/'):
 		input_file = 'src/app/' + infile
 		output = 'public/js/app/' + os.path.splitext(infile)[0] + '.js'
 		print green +'START:' + default +  ' compile for ' + input_file + magenta + ' -> '+ default + output
-		processes.append(subprocess.Popen('sh ' + ' scripts/cljs-watch ' + input_file +
-			' \'{:output-to "' + output + '" :output-dir "public/js/app/out"}\'', shell=True))
+		processes.append(subprocess.Popen(['sh', 'scripts/cljs-watch', input_file,
+			'{:output-to "' + output + '" :output-dir "public/js/app/out"}']))
 
 print green + 'START:' + default + ' compile for server'
-processes.append(subprocess.Popen('sh scripts/cljs-watch src/server \'{:output-dir "out" :optimizations :simple' +
-	' :output-to "server.js" :target :nodejs}\'', shell=True))
+processes.append(subprocess.Popen(['sh', 'scripts/cljs-watch', 'src/server', 
+'{:output-dir "out" :optimizations :simple :output-to "server.js" :target :nodejs}']))
 
 signal.signal(signal.SIGINT, signal_handler)
 print 'Press Ctrl+C to exit'
 signal.pause()
-
 
