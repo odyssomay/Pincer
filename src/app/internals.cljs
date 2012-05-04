@@ -14,6 +14,9 @@
                                            (fn [data]
                                              (doto j-c
                                                (.empty)
-                                               (.append data)))))))))))))
+                                               (.hide)
+                                               (.append data)
+                                               (.fadeIn 50)
+                                               ))))))))))))
 
 
