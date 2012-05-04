@@ -19,8 +19,9 @@
      (.hashchange ($ window)
                   (fn [] 
                     (let [h (.-hash (.-location window))]
-                      (render-internal (.substring h 1) nil)
-                      )))
+                      (if-not (= h "")
+                        (render-internal (.substring h 1) nil)))))
+     (.hashchange ($ window))
 
      (.each ($ ".link-internal")
             (fn [i e] 
