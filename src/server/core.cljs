@@ -21,8 +21,14 @@
   (doto app
     (.get "/" (fn [req res] (.redirect res "/page/index")))
     (.get "/page/:name" (fn [req res]
-                          (.send res (r/render-page (keyword (.-name (.-params req))))) 
-                          ))))
+                          (if-let [p (r/render-page (keyword (.-name (.-params req))))]
+                            (.send res p)
+                            (.redirect res "/page/not_found"))))
+    (.get "/internal/:name" (fn [req res]
+                              (if-let [i (r/render-internal (keyword (.-name (.-params req))))]
+                                (.send res i)
+                                (.redirect res "/internal/not_found"))))
+    ))
 
 (defn start-server []
   (let [app (.createServer express)]

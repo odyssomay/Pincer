@@ -6,6 +6,7 @@
 (def whiskers (node/require "whiskers"))
 
 (def pages (atom {}))
+(def internals (atom {}))
 (def partials (atom {}))
 
 (defn get-dir-file-content [dir]
@@ -65,11 +66,19 @@
 
 (defn init-env []
   (fill-atom-with-dir-content "views/" pages)
-  (fill-atom-with-dir-content "partials/" partials))
+  (fill-atom-with-dir-content "partials/" partials)
+  (fill-atom-with-dir-content "internals/" internals)
+  )
 
-(defn render-page [page]
+(defn render-page [page env]
   (let [page-content (get @pages page nil)
         env (get-env env)]
-    (if-not page-content (println "WARNING: page" page "does not exist"))
-    (.render whiskers page-content env)))
+    (if page-content
+      (.render whiskers page-content env))))
+
+(defn render-internal [internal env]
+  (let [int-content (get @internals internal nil)
+        env (get-env env)]
+    (if int-content
+      (.render whiskers int-content env))))
 
