@@ -1,0 +1,24 @@
+<html>
+	<head>
+		<title>Welcome to pincer!</title>
+		{>partials.head}
+		{js.jquery}
+		{app.init}
+		{app.index}
+		{app.internals}
+		{css.index}
+	</head>
+	<body>
+		<div id="content">
+			<h1>Congratulations</h1>
+			<p>The server is working correctly!</p>
+			<a href="#" id="test-button">press to test javascript</a>
+			<div id="test-hidden-content" style="display: none;">
+				<p>And the javascript is also working</p>
+			</div>
+			<br>
+			<a href="#" class="link-internal" target_internal="test_internal">press to test internals</a>
+			<div id="internals-container"></div>
+	</body>
+</html>
+
