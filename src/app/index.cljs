@@ -1,8 +1,6 @@
 (ns index)
 
-(def $ (js* "jQuery"))
-
-($ (fn []
-     (.click ($ "#test-button") 
-             (fn []
-               (.slideToggle ($ "#test-hidden-content") 200)))))
+(js/$ (fn []
+        (.click (js/$ "#test-button") 
+                (fn []
+                  (.slideToggle (js/$ "#test-hidden-content") 200)))))
