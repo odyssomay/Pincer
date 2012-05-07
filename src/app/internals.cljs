@@ -1,6 +1,16 @@
 (ns internals)
 
-(def $ (js/$))
+(def on-internal-load-fns 
+  (atom {}))
+
+(defn on-internal-load [name f]
+  (swap! on-internal-load-fns assoc (keyword name) f))
+
+(defn trigger-on-internal-load [name]
+  (let [f (get @on-internal-load-fns (keyword name) (fn []))]
+    (f)))
+
+(def $ (js* "$"))
 (def window (js* "window"))
 
 (defn render-internal [internal container]
