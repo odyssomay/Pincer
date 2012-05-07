@@ -32,13 +32,14 @@
     m))
 
 (defn get-app-js-import-map []
-  (let [m (create-dir-map "public/js/app/" ".js"
+  (let [m (create-dir-map "src/app/" ".cljs"
                           (fn [filename]
-                            (str "<script type=\"text/javascript\" src=\"/js/app/" filename  
-                                 "\"></script>
-                                 <script type=\"text/javascript\">
-                                 goog.require('" (.replace filename ".js" "") "');</script>")))]
-    (merge m {:init "<script type=\"text/javascript\" src=\"/js/app/out/goog/base.js\"></script>"})))
+                            (str"<script type=\"text/javascript\">
+                                 goog.require('" 
+                                 (.replace filename ".cljs" "") 
+                                 "');</script>")))]
+    (merge m {:init (str "<script type=\"text/javascript\" src=\"/js/app/out/goog/base.js\"></script>"
+                         "<script type=\"text/javascript\" src=\"/js/app/app.js\"></script>" )})))
 
 (defn get-js-import-map []
   (create-dir-map "public/js/" ".js"

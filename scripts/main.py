@@ -21,13 +21,9 @@ def signal_handler(signal, frame):
 	print green + 'Successful shutdown!'
 	sys.exit(0)
 
-for infile in os.listdir('src/app/'):
-	if infile.endswith('.cljs'):
-		input_file = 'src/app/' + infile
-		output = 'public/js/app/' + os.path.splitext(infile)[0] + '.js'
-		print green +'START:' + default +  ' compile for ' + input_file + magenta + ' -> '+ default + output
-		processes.append(subprocess.Popen(['sh', 'scripts/cljs-watch', input_file,
-			'{:output-to "' + output + '" :output-dir "public/js/app/out"}']))
+print green + 'START:' + default + ' compile for app'
+processes.append(subprocess.Popen(['sh', 'scripts/cljs-watch', 'src/app', 
+'{:output-dir "public/js/app/out/" :output-to "public/js/app/app.js"}']))
 
 print green + 'START:' + default + ' compile for server'
 processes.append(subprocess.Popen(['sh', 'scripts/cljs-watch', 'src/server', 
