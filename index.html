@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Pincer</title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="css/styles.css" />
+		<script type="text/javascript" src="http://use.typekit.com/nxb8sjs.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+		<!--[if IE]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+	</head>
+
+	<body id="home">
+		<div id="content">
+			<h1>Pincer</h1>
+			<img src="images/logo.png">
+			<p id="intro">Pincer is a kit for developing clojurescript sites.
+			It contains a few scripts, some useful code, and some boilerplate.</p>
+			<table id="download-table">
+				<tr>
+					<td>
+						<div class="download-button" onclick="window.location.href='https://github.com/odyssomay/Pincer/zipball/master'">
+							<img style="height: 80px" src="images/clamp.png">
+							<p>download</p>
+							<p class="download-description">latest source</p>
+						</div>
+					</td>
+					<td>
+						<div class="download-button">
+							<img style="height: 80px" src="images/box.png">
+							<p>download</p>
+							<p class="download-description">package with dependencies</p>
+						</div>
+					</td>
+				</tr>
+			</table>
+			<h2>Getting started</h2>
+			<p>You can choose from two options, as you can see above.</p>
+			<p>The source version is the recommended to download.
+			In this case you need the <a href="http://npmjs.org/">npm</a> package manager for nodejs
+			applications.</p>
+			<p>When you have pincer on your hard drive, start up your favorite terminal 
+			and run <span class="inline-code">npm install</span>.</p>
+			<p>To start working run <span class="inline-code">sh scripts/main.sh</span>. It is
+			important that this is done from the pincer root directory.</p>
+			<p>If you haven't got any error messages, it's all good to go!
+			Point your browser to <a href="http://localhost:8080/">http://localhost:8080/</a>
+			and verify that everything is working properly.</p>
+			<h2>Folders</h2>
+			<p>The folders determine the structure of the application - how everything is layed out.</p>
+			<div id="folder-structure">
+				pincer
+				<div class="folder-content">
+					internals<br>
+					partials<br>
+					public<br>
+					<div class="folder-content">
+						css<br>
+						js<br>
+					</div>
+					scripts<br>
+					src<br>
+					<div class="folder-content">
+						app<br>
+						server<br>
+					</div>
+					views
+				</div>
+			</div>
+			<p>This outline is there to get an overview of what parts the application
+			you create consists of. The content of the folders will be explained in detailed below.</p>
+			<h2>Views</h2>
+			<p>A view is an html file that you want to load from the browser. That is, in the same way
+			that you would load a page from a static file server.</p>
+			<p>Views must be placed in the <span class="inline-code">views</span> directory. When in the <span class="inline-code">views</span> directory, they
+			can be loaded in the browser with the path <span class="inline-code">/page/:name</span>, where <span class="inline-code">:name</span> is the name of the view.
+			For example, if a file called <span class="inline-code">test.html</span> is placed in the <span class="inline-code">views</span> directory, it can be reached
+			in the browser with <span class="inline-code">/page/test</span>.</p>
+			<h2>Internals</h2>
+			<p>Internals are exactly the same as views, but they are meant to be loaded from the current page.
+			They are used to create a one page application. Note that you can mix views and internals
+			however you like, meaning your application can mix the concepts of multiple page versus one page applications.</p>
+			<h2>Partials</h2>
+			<p>Partials are again, exactly the same as views, but they can only be imported from views or internals.
+			This is used for parts that are shared between pages.</p>
+			<h2>Repl</h2>
+			<h2>Server</h2>
+			<p>Now that you know how to use and take advantage of the code already provided, it's 
+			time to take an initial closer look at the underlying code.</p>
+			<h2>License</h2>
+		</div>
+		<div id="footer">
+			<p>&copy; <a href="http://odyssomay.github.com">Jonathan Fischer Friberg</a> 2012</p>
+			<!--<a href="mailto:odyssomay@gmail.com">contact</a>-->
+		</div>
+	</body>
+</html>
