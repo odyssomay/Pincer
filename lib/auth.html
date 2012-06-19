@@ -1,0 +1,33 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Pincer - lib/auth.cljs</title>
+		<link rel="stylesheet" type="text/css" href="/css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="/css/styles.css" />
+		<link rel="stylesheet" type="text/css" href="/css/scheme.css" />
+		<script type="text/javascript" src="http://use.typekit.com/gfz5kxa.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+		<!--[if IE]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+	</head>
+
+	<body id="home">
+		<div id="content">
+			<h2>lib/auth.cljs</h2>
+			<p>The file contains a simple system for authentication. It needs a lot of
+			modification to actually be useful.</p>
+			<p>To be able to use it, you have to add the following to core/configure-server:</p>
+{% highlight clojure %}
+(.use app (.bodyParser express))
+(.use app (.cookieParser express))
+(.use app (.session express (util/map->js {:secret "secret!"})))
+{% endhighlight %}
+			<p>The "secret" is used to encrypt the contents of the session cookie (where username + password will be saved by).</p>
+			<p>You will also have to run <span class="inline-code">(lib.auth/init-routes app)</span>, to enable login/logout capabilities.</p>
+		</div>
+	</body>
+</html>
