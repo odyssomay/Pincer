@@ -19,8 +19,12 @@ a:hover { color: #2771BB; }
 .download-button p { color: #333; font-size: 18pt; margin-top: 5px; padding-top: 0; padding-bottom: 0; text-align: center;}
 p.download-description { color: #888; font-size: 12pt; }
 
-.inline-code { padding: 2px; padding-left: 5px; padding-right: 5px; margin-left: 3px; margin-right: 3px; 
+pre, .inline-code { padding: 2px; padding-left: 5px; padding-right: 5px; margin-left: 3px; margin-right: 3px; 
 background: #EEE; border: 1px solid #DDD; border-radius: 5px; font-size: 16pt; }
+pre { font-size: 13pt; font-weight: lighter; margin: 30px; margin-top: 20px; margin-bottom: 20px; padding: 15px; 
+white-space: pre-wrap; /* css-3 */ white-space: -moz-pre-wrap !important; /* Mozilla, since 1999 */ white-space: -pre-wrap; /* Opera 4-6 */
+white-space: -o-pre-wrap; /* Opera 7 */ word-wrap: break-word; /* Internet Explorer 5.5+ */}
+code { margin: 0; padding: 0;  }
 
 #folder-structure { text-align: left; font-family: "chaparral-pro"; font-size: 16pt; margin-top: 20px; margin-bottom: 20px; margin-left: 60px; line-height: 1.5em; }
 .folder-content { border-left: 3px solid #AAA; padding-left: 15px; margin-left: 5px; margin-top: 5px;}
