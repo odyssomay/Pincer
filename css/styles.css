@@ -1,15 +1,15 @@
-h1 { font-family: "ff-cocon-web-pro"; font-weight: 400; font-style: normal;
+h1 { font-family: "ff-cocon-web-pro"; font-weight: 400; font-style: normal; text-align: center;
 font-size: 90pt; line-height: 1.4em;}
-h2 { font-family: "trajan-pro"; font-size: 30pt; margin-top: 1.8em; margin-bottom: 30px;}
+h2 { font-family: "trajan-pro"; font-size: 30pt; margin-top: 50px; margin-bottom: 30px;}
 p { padding: 30px; padding-top: 0; padding-bottom: 0; font-family: "chaparral-pro"; font-size: 18pt; text-align: left; line-height: 1.5em; }
-p + p { margin-top: 1em; }
+p + p { margin-top: 0.5em; }
 a { color: #2993DD; text-decoration: none; }
 a:hover { color: #2771BB; }
 
 .centered-block { display: block; margin-left: auto; margin-right: auto; }
 #download-table { margin-left: auto; margin-right: auto; }
 #download-table td { padding-left: 20px; padding-right: 20px; }
-#content { display: block; margin-left: auto; margin-right: auto; width: 700px; text-align: center; }
+#content { display: block; margin-left: auto; margin-right: auto; width: 700px;}
 #content img { display: block; margin: auto; }
 #intro { margin-top: 40px; padding: 30px; }
 
